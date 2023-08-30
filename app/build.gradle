@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'top.linl.imageutil'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "top.linl.imageutil"
+        minSdk 30
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    //安卓依赖
+    implementation 'androidx.appcompat:appcompat:1.7.0-alpha02'
+    implementation 'com.google.android.material:material:1.9.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    //防止kt版本不匹配编译异常 (虽然没用到kt语言)
+    implementation(platform('org.jetbrains.kotlin:kotlin-bom:1.8.20-RC'))
+}
